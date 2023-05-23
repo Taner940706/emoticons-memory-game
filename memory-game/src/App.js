@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from 'react'
+import Card from './components/Card';
 
 const cardImages = [
   {"src": "/images/face-with-tears-of-joy.png"},
@@ -29,18 +30,12 @@ function App() {
     <div className="App">
       <h1>Emoticons Memory Game</h1>
       <button onClick={shuffleCards}>New Game</button>
-
       <div className="card-grid">
         {cards.map(card => (
-          <div className="card" key={card.id}>
-            <div>
-              <img className="front" src={card.src} alt="front image" />
-              <img className="back" src="/images/cover.jpg" alt="cover image" />
-            </div>
-          </div>
+
+      <Card key={card.id} card={card} />
         ))}
       </div>
-      
     </div>
   );
 }
