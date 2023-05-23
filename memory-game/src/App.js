@@ -17,6 +17,8 @@ function App() {
 
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo] = useState(null)
 
   const shuffleCards = () => {
     const shufledCards = [...cardImages, ...cardImages]
@@ -26,6 +28,10 @@ function App() {
     setTurns(0)
   }
 
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card): setChoiceOne(card)
+  }
+
   return (
     <div className="App">
       <h1>Emoticons Memory Game</h1>
@@ -33,7 +39,7 @@ function App() {
       <div className="card-grid">
         {cards.map(card => (
 
-      <Card key={card.id} card={card} />
+      <Card key={card.id} card={card} handleChoice={handleChoice}/>
         ))}
       </div>
     </div>
