@@ -3,14 +3,14 @@ import {useEffect, useState} from 'react'
 import Card from './components/Card';
 
 const cardImages = [
-  {"src": "/images/face-with-tears-of-joy.png"},
-  {"src": "/images/fearful.png"},
-  {"src": "/images/love-hearts-eyes.png"},
-  {"src": "/images/sad-crying.png"},
-  {"src": "/images/smiley.png"},
-  {"src": "/images/smilling-face-with-sunglasses.png"},
-  {"src": "/images/amused-face.png"},
-  {"src": "/images/wink.png"},
+  {"src": "/images/face-with-tears-of-joy.png", matched: false },
+  {"src": "/images/fearful.png", matched: false},
+  {"src": "/images/love-hearts-eyes.png", matched: false},
+  {"src": "/images/sad-crying.png", matched: false},
+  {"src": "/images/smiley.png", matched: false},
+  {"src": "/images/smilling-face-with-sunglasses.png", matched: false},
+  {"src": "/images/amused-face.png", matched: false},
+  {"src": "/images/wink.png", matched: false},
 ]
 
 function App() {
@@ -41,6 +41,21 @@ function App() {
   useEffect(() => {
     if (choiceOne && choiceTwo){
       if (choiceOne.src === choiceTwo.src){
+        setCards(prevCards => {
+          return prevCards.map(
+            card => {
+              if (card.src === choiceOne.src){
+                return {...card, matched: true}
+              }
+              else{
+                return card
+              }
+            }
+          )
+        })
+        resetTurn()
+      }
+      else{
         resetTurn()
       }
     }
