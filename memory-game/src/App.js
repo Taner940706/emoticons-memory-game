@@ -25,6 +25,9 @@ function App() {
     const shufledCards = [...cardImages, ...cardImages]
     .sort(() => Math.random() - 0.5)
     .map((card) => ({...card, id: Math.random()}))
+
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shufledCards)
     setTurns(0)
   }
@@ -64,6 +67,12 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
+
+  useEffect(() => {
+    shuffleCards()
+
+  }, [])
+
   return (
     <div className="App">
       <h1>Emoticons Memory Game</h1>
@@ -74,6 +83,7 @@ function App() {
       <Card key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disabled={disabled} />
         ))}
       </div>
+      <p>Turns: {turns}</p>
     </div>
   );
 }
