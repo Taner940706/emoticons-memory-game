@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Card from './components/Card';
 
 const cardImages = [
@@ -31,6 +31,20 @@ function App() {
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card): setChoiceOne(card)
   }
+
+  const resetTurn = () => {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns(prevTurns => prevTurns + 1)
+  }
+
+  useEffect(() => {
+    if (choiceOne && choiceTwo){
+      if (choiceOne.src === choiceTwo.src){
+        resetTurn()
+      }
+    }
+  }, [choiceOne, choiceTwo])
 
   return (
     <div className="App">
