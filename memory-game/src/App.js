@@ -8,8 +8,8 @@ const cardImages = [
   {"src": "/images/love-hearts-eyes.png", matched: false},
   {"src": "/images/sad-crying.png", matched: false},
   {"src": "/images/smiley.png", matched: false},
-  {"src": "/images/smilling-face-with-sunglasses.png", matched: false},
-  {"src": "/images/amused-face.png", matched: false},
+  {"src": "/images/smiling-face-with-sunglasses.png", matched: false},
+  {"src": "/images/unamused-face.png", matched: false},
   {"src": "/images/wink.png", matched: false},
 ]
 
