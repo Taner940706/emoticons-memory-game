@@ -5,12 +5,12 @@ import Card from './components/Card';
 const cardImages = [
   {"src": "/images/face-with-tears-of-joy.png", matched: false },
   {"src": "/images/fearful.png", matched: false},
-  {"src": "/images/love-hearts-eyes.png", matched: false},
-  {"src": "/images/sad-crying.png", matched: false},
-  {"src": "/images/smiley.png", matched: false},
-  {"src": "/images/smiling-face-with-sunglasses.png", matched: false},
-  {"src": "/images/unamused-face.png", matched: false},
-  {"src": "/images/wink.png", matched: false},
+  // {"src": "/images/love-hearts-eyes.png", matched: false},
+  // {"src": "/images/sad-crying.png", matched: false},
+  // {"src": "/images/smiley.png", matched: false},
+  // {"src": "/images/smiling-face-with-sunglasses.png", matched: false},
+  // {"src": "/images/unamused-face.png", matched: false},
+  // {"src": "/images/wink.png", matched: false},
 ]
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
   const [disabled, setDisabled] = useState(false)
+  const [count, setCount] = useState(0)
 
   const shuffleCards = () => {
     const shufledCards = [...cardImages, ...cardImages]
@@ -72,6 +73,25 @@ function App() {
     shuffleCards()
 
   }, [])
+
+  useEffect(() => {
+
+    for (let i in cards){
+      if (cards[i].matched == true){
+        setCount(count+1)
+        delete cards[i]
+      }
+
+      if ((cards.length - count ) == 2 ){
+        setCards([])
+      }
+      
+    }
+    
+    
+    
+  }, [cards])
+
 
   return (
     <div className="App">
