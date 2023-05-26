@@ -5,12 +5,12 @@ import Card from './components/Card';
 const cardImages = [
   {"src": "/images/face-with-tears-of-joy.png", matched: false },
   {"src": "/images/fearful.png", matched: false},
-  // {"src": "/images/love-hearts-eyes.png", matched: false},
-  // {"src": "/images/sad-crying.png", matched: false},
-  // {"src": "/images/smiley.png", matched: false},
-  // {"src": "/images/smiling-face-with-sunglasses.png", matched: false},
-  // {"src": "/images/unamused-face.png", matched: false},
-  // {"src": "/images/wink.png", matched: false},
+  {"src": "/images/love-hearts-eyes.png", matched: false},
+  {"src": "/images/sad-crying.png", matched: false},
+  {"src": "/images/smiley.png", matched: false},
+  {"src": "/images/smiling-face-with-sunglasses.png", matched: false},
+  {"src": "/images/unamused-face.png", matched: false},
+  {"src": "/images/wink.png", matched: false},
 ]
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null)
   const [disabled, setDisabled] = useState(false)
   const [count, setCount] = useState(0)
+
 
   const shuffleCards = () => {
     const shufledCards = [...cardImages, ...cardImages]
@@ -102,7 +103,9 @@ function App() {
 
       <Card key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disabled={disabled} />
         ))}
+        
       </div>
+      {(cards.length - count) == 2 && <h2>You win! Press New Game!</h2>}
       <p>Turns: {turns}</p>
     </div>
   );
