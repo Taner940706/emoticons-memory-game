@@ -67,3 +67,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Screenshot
+![main](https://github.com/Taner940706/emoticons-memory-game/assets/59261346/2531009d-702e-435e-b985-ffb55fb708d1)
+
